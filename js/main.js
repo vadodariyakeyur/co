@@ -140,29 +140,6 @@
 		} , { offset: '85%' } );
 	};
 
-
-	var dropdown = function() {
-
-		$('.has-dropdown').mouseenter(function(){
-
-			var $this = $(this);
-			$this
-				.find('.dropdown')
-				.css('display', 'block')
-				.addClass('animated-fast fadeInUpMenu');
-
-		}).mouseleave(function(){
-			var $this = $(this);
-
-			$this
-				.find('.dropdown')
-				.css('display', 'none')
-				.removeClass('animated-fast fadeInUpMenu');
-		});
-
-	};
-
-
 	var goToTop = function() {
 
 		$('.js-gotop').on('click', function(event){
@@ -195,27 +172,6 @@
 		$(".colorlib-loader").fadeOut("slow");
 	};
 
-	var counter = function() {
-		$('.js-counter').countTo({
-			 formatter: function (value, options) {
-	      return value.toFixed(options.decimals);
-	    },
-		});
-	};
-
-
-	var counterWayPoint = function() {
-		if ($('#colorlib-counter').length > 0 ) {
-			$('#colorlib-counter').waypoint( function( direction ) {
-										
-				if( direction === 'down' && !$(this.element).hasClass('animated') ) {
-					setTimeout( counter , 400);					
-					$(this.element).addClass('animated');
-				}
-			} , { offset: '90%' } );
-		}
-	};
-
 	var sliderMain = function() {
 		
 	  	$('#colorlib-hero .flexslider').flexslider({
@@ -242,44 +198,6 @@
 	  	});
 
 	};
-
-	var parallax = function() {
-
-		if ( !isMobile.any() ) {
-			$(window).stellar({
-				horizontalScrolling: false,
-				hideDistantElements: false, 
-				responsive: true
-
-			});
-		}
-	};
-
-	// Owl Carousel
-	var owlCrouselFeatureSlide = function() {
-		var owl = $('.owl-carousel1');
-		owl.owlCarousel({
-			animateOut: 'fadeOut',
-		   animateIn: 'fadeIn',
-			autoplay: true,
-			items: 1,
-			autoHeight: true,
-		   loop: true,
-		   margin: 0,
-		   responsiveClass: true,
-		   nav: false,
-		   dots: true,
-		   autoplayHoverPause: true,
-		   mouseDrag: false,
-		   smartSpeed: 500,
-		   navText: [
-		      "<i class='icon-arrow-left3 owl-direction'></i>",
-		      "<i class='icon-arrow-right3 owl-direction'></i>"
-	     	]
-		});
-
-	};
-
 	
 	$(function(){
 		mobileMenuOutsideClick();
@@ -287,13 +205,8 @@
 		burgerMenu();
 		contentWayPoint();
 		sliderMain();
-		dropdown();
 		goToTop();
 		loaderPage();
-		counter();
-		counterWayPoint();
-		parallax();
-		owlCrouselFeatureSlide();
 	});
 
 
